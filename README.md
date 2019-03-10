@@ -297,4 +297,35 @@ just(...items)
 // [ 5, 6 ]
 ```
 
+### emit items if their index is within a specified range (including start and end)
+
+#### end defaults to Infinity
+```JavaScript
+const items = ['val1', 'val2', 'val3', 'val4', 'val5', 'val6'];
+const start = 2;
+just(...items)
+  .pipe( emitRange( start ) )
+  .on( 'data', console.log );
+
+// output:
+// val3
+// val4
+// val5
+// val6
+```
+#### from start to end
+```JavaScript
+const items = ['val1', 'val2', 'val3', 'val4', 'val5', 'val6'];
+const start = 2;
+const end = 5;
+just(...items)
+  .pipe( emitRange( start ) )
+  .on( 'data', console.log );
+
+// output:
+// val3
+// val4
+// val5
+```
+
 TBC
